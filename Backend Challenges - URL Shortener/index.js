@@ -1,6 +1,10 @@
+// imports
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require("body-parser");
+const dns = require("dns");
+const urlParser = require("url");
 const app = express();
 
 // Basic Configuration
@@ -14,10 +18,21 @@ app.get('/', function(req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
-// Your first API endpoint
-app.get('/api/hello', function(req, res) {
-  res.json({ greeting: 'hello API' });
+// POST api
+app.post('/api/shorturl', (req, res) => {
+  const original = req.body.url;
+
+  // verify if host is valid
+
+  // shorturl counter
+  
 });
+
+// GET api
+app.get('/api/shorturl/:short', (req, res) => {
+  
+});
+
 
 app.listen(port, function() {
   console.log(`Listening on port ${port}`);
